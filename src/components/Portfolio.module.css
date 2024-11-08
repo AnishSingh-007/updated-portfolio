@@ -1,0 +1,337 @@
+General Styles for Portfolio Component
+.portfolio {
+    background: var(--eerie-black-2);
+    border: 1px solid var(--jet);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: var(--shadow-1);
+    z-index: 1;
+    margin: 15px 0;
+  }
+  
+  .articleTitle {
+    color: var(--white-2);
+    text-transform: capitalize;
+    font-size: var(--fs-1);
+    position: relative;
+    padding-bottom: 7px;
+  }
+  
+  .articleTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: var(--text-gradient-yellow);
+    border-radius: 3px;
+  }
+  
+  .projects {
+    margin-top: 20px;
+  }
+  
+  .filterList {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .filterItem {
+    list-style: none;
+  }
+  
+  .filterItem button {
+    background: none;
+    border: none;
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: color var(--transition-1);
+  }
+  
+  .filterItem button:hover,
+  .filterItem button.active {
+    color: var(--orange-yellow-crayola);
+  }
+  
+  .filterSelectBox {
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .filterSelect {
+    background: var(--eerie-black-2);
+    color: var(--light-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    cursor: pointer;
+  }
+  
+  .filterSelect.active .selectIcon {
+    transform: rotate(0.5turn);
+  }
+  
+  .selectList {
+    background: var(--eerie-black-2);
+    position: absolute;
+    top: calc(100% + 6px);
+    width: 100%;
+    padding: 6px;
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.15s ease-in-out;
+  }
+  
+  .filterSelect.active + .selectList {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+  
+  .selectItem {
+    list-style: none;
+  }
+  
+  .selectItem button {
+    background: var(--eerie-black-2);
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    text-transform: capitalize;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .selectItem button:hover {
+    background: hsl(240, 2%, 20%);
+  }
+  
+  .projectList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .projectItem {
+    display: none;
+  }
+  
+  .projectItem.active {
+    display: block;
+    animation: scaleUp 0.25s ease forwards;
+  }
+  
+  @keyframes scaleUp {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+  }
+  
+  .projectImg {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  
+  .projectImg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    transition: var(--transition-1);
+  }
+  
+  .projectItemIconBox {
+    --scale: 0.8;
+    background: var(--jet);
+    color: var(--orange-yellow-crayola);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale));
+    font-size: 20px;
+    padding: 18px;
+    border-radius: 12px;
+    opacity: 0;
+    z-index: 1;
+    transition: var(--transition-1);
+  }
+  
+  .projectItemIconBox ion-icon {
+    --ionicon-stroke-width: 50px;
+  }
+  
+  .projectItem:hover .projectItemIconBox {
+    --scale: 1;
+    opacity: 1;
+  }
+  
+  .projectImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-1);
+  }
+  
+  .projectItem:hover img {
+    transform: scale(1.1);
+  }
+  
+  .projectTitle,
+  .projectCategory {
+    margin-left: 10px;
+  }
+  
+  .projectTitle {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-400);
+    text-transform: capitalize;
+    line-height: 1.3;
+  }
+  
+  .projectCategory {
+    color: var(--light-gray-70);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+  }
+
+  .modalContent img {
+    width: 100%;       /* Makes the image take up the full width of the modal */
+    height: auto;      /* Maintains the aspect ratio of the image */
+    object-fit: cover; /* Ensures the image fills the space in a pleasing way */
+  }
+
+
+/* Image styles for responsive fit */
+.modalContent img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  object-fit: contain; /* Ensures image fits within modal */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrow button styles */
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+
+.arrowLeft {
+  left: 20px;
+}
+
+.arrowRight {
+  right: 20px;
+}
+
+/* Hover effects for arrows */
+.arrowLeft:hover,
+.arrowRight:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Visit Button with Absolute Positioning */
+.visitButton {
+  position: absolute;
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); /* Centers horizontally */
+  padding: 0.6rem 1.2rem;
+  /* background-color: #007bff;  */
+  background-color: rgba(0, 123, 255, 0.8); /* Primary color with transparency */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10; /* Ensures it stays above other elements */
+}
+
+/* Hover and focus effects for button */
+.visitButton:hover,
+.visitButton:focus {
+  background-color: #0056b3;
+  transform: translate(-50%, -2px); /* Moves up slightly on hover */
+}
+
+/* Active state for click feedback */
+.visitButton:active {
+  background-color: #004494;
+  transform: translate(-50%, 0); /* Resets lift effect */
+}
+
+
+/* Responsive design: adjust arrow positions and sizes on smaller screens */
+@media (max-width: 768px) {
+  .arrowLeft,
+  .arrowRight {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+  .arrowLeft {
+    left: 10px;
+  }
+  .arrowRight {
+    right: 10px;
+  }
+}
+
+/* Close modal on clicking outside content */
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+  

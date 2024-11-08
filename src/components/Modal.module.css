@@ -1,0 +1,97 @@
+
+   
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* width: 100vw;
+    height: 100vh; */
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+  }
+  
+  .modal {
+    position: relative; /* Context for absolute positioning */
+    background: white;
+    padding: 1rem;
+    width: 70%; /* Or any other dimensions */
+    height: 80vh;
+    overflow: hidden; /* Prevents modal itself from scrolling */
+    margin: auto; /* Centering the modal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  
+  /* .modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-height: 90vh;
+    max-width: 90%;
+    overflow-y: auto;
+  } */
+  
+  .modalContent {
+    /* max-height: calc(80vh - 40px);  Adjust height based on modal padding */
+    overflow-y: auto; /* Enables scrolling within the modal */
+    /* padding-right: 10px;  Optional: Adjust based on styling */
+    height: 100%;
+  }
+  
+  /* .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  } */
+
+  /* .overlay_content > button.close{ */
+    .modal > .close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    position: absolute; /* This makes the button fixed relative to the viewport */
+    top: 20px; /* Adjusts the distance from the top of the viewport */
+    right: 20px; /* Adjusts the distance from the right side of the viewport */
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer; /* Changes the mouse cursor to indicate it's clickable */
+    z-index: 1000; /* Ensures the button stays above other content */
+    outline: none; /* Removes the focus outline */
+    height: 25px;
+    width: 25px
+}
+
+.modal > .close:hover {
+    color: #f00; /* Changes the color to red when hovering */
+    background-color: #e6e6e6; /* Adds a light grey background */
+    border-radius: 50%; /* Optional: rounds the background */
+    font-weight: 800;
+    transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effect */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .modalContent::-webkit-scrollbar{
+      display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .modalContent {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* You might want to add the same styles for any other containers that should allow scrolling without visible scrollbars */
+  
+
+
+ 
