@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../assets/css/style.css';
 
 import avatar1 from "../assets/images/my-avatar.png";
 
 const Sidebar = () => {
+  const [sidebarActive, setSidebarActive] = useState(false)
+
+
   return (
-    <aside className="sidebar" data-sidebar>
+    // <aside className="sidebar active" data-sidebar>
+    <aside className={`sidebar ${sidebarActive? "active" : ""}`} data-sidebar>
       <div className="sidebar-info">
         <figure className="avatar-box">
           <img src={avatar1} alt="Anish Kumar Singh" width="80" />
@@ -14,7 +18,7 @@ const Sidebar = () => {
           <h1 className="name" title="Anish Kumar Singh">Anish Kumar Singh</h1>
           <p className="title">Full Stack Developer</p>
         </div>
-        <button className="info_more-btn" data-sidebar-btn>
+        <button className="info_more-btn" data-sidebar-btn onClick={() => setSidebarActive(prev => !prev)}>
           <span>Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
